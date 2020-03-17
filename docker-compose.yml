@@ -27,9 +27,7 @@ services:
     container_name: oada-ensure
     restart: always
     networks:
-      - http_net
       - startup_net
-      - arango_net
     volumes:
       - ./services-available/oada-ensure:/code/oada-ensure
       - ./oada-core/libs:/code/libs
@@ -38,3 +36,5 @@ services:
       - NODE_TLS_REJECT_UNAUTHORIZED
       - NODE_ENV=${NODE_ENV:-development}
       - DEBUG
+      - domain
+      - token
